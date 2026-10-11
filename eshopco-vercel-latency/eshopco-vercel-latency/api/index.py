@@ -81,7 +81,7 @@ class handler(BaseHTTPRequestHandler):
                     "breaches": sum(1 for value in latencies if value > threshold),
                 })
 
-            payload = json.dumps({"results": results}, separators=(",", ":")).encode("utf-8")
+            payload = json.dumps({"regions": results}, separators=(",", ":")).encode("utf-8")
             self.send_response(200)
             self._cors()
             self.send_header("Content-Type", "application/json; charset=utf-8")
